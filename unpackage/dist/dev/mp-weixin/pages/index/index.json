@@ -1,6 +1,7 @@
 {
-  "navigationBarTitleText": "uni-ui基础项目",
+  "navigationBarTitleText": "欢乐果园",
   "usingComponents": {
-    "uni-link": "/components/uni-link/uni-link"
+    "uni-grid": "/components/uni-grid/uni-grid",
+    "uni-grid-item": "/components/uni-grid-item/uni-grid-item"
   }
 }

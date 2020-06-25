@@ -14,6 +14,7 @@ export default {
 
 <style>
 /* 解决头条小程序组件内引入字体不生效的问题 */
+/* @import "/wxcomponents/vant/dist/common/index.wxss"; */
 /* #ifdef MP-TOUTIAO */
 @font-face {
 	font-family: uniicons;
