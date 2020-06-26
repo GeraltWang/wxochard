@@ -101,10 +101,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   uniGrid: function() {
-    return __webpack_require__.e(/*! import() | components/uni-grid/uni-grid */ "components/uni-grid/uni-grid").then(__webpack_require__.bind(null, /*! @/components/uni-grid/uni-grid.vue */ 37))
+    return __webpack_require__.e(/*! import() | components/uni-grid/uni-grid */ "components/uni-grid/uni-grid").then(__webpack_require__.bind(null, /*! @/components/uni-grid/uni-grid.vue */ 41))
   },
   uniGridItem: function() {
-    return __webpack_require__.e(/*! import() | components/uni-grid-item/uni-grid-item */ "components/uni-grid-item/uni-grid-item").then(__webpack_require__.bind(null, /*! @/components/uni-grid-item/uni-grid-item.vue */ 44))
+    return __webpack_require__.e(/*! import() | components/uni-grid-item/uni-grid-item */ "components/uni-grid-item/uni-grid-item").then(__webpack_require__.bind(null, /*! @/components/uni-grid-item/uni-grid-item.vue */ 48))
   }
 }
 var render = function() {
@@ -216,6 +216,7 @@ var _default =
       duration: 500,
       banner: [],
       subtitles: [],
+      cartData: [],
       ts: [],
       griddata: [{
         name: '每周上新',
@@ -258,7 +259,35 @@ var _default =
 
 
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    addCart: function addCart(item) {
+      this.cartData.push(item);
+      var currentCart = uni.getStorage({
+        key: 'cartstorage',
+        success: function success(res) {
+          console.log(res.data);
+        } });
+
+      if (!currentCart) {
+        uni.setStorage({
+          key: 'cartstorage',
+          data: this.cartData,
+          success: function success(res) {
+            console.log(res);
+          } });
+
+      } else {
+        var cdata = JSON.parse(currentCart);
+        cdata.push(item);
+        uni.setStorage({
+          key: 'cartstorage',
+          data: cdata,
+          success: function success(res) {
+            console.log(res);
+          } });
+
+      }
+    } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

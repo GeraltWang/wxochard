@@ -1,6 +1,14 @@
 <template>
 	<view>
-		
+		<view class="">
+			
+		</view>
+		<view class="">
+			
+		</view>
+		<view class="">
+			
+		</view>
 	</view>
 </template>
 

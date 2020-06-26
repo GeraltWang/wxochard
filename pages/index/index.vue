@@ -36,7 +36,7 @@
 								</view>
 								<view class="orangebox">
 									<text class="text-color">￥{{tem.price}}元/{{tem.volume}}</text>
-									<image class="addbtn" src="http://192.168.123.204:8088/images/cart.png" mode=""></image>
+									<image class="addbtn" src="http://192.168.123.204:8088/images/cart.png" mode="" @click="addCart(tem)"></image>
 								</view>
 							</view>
 						</scroll-view>
@@ -72,6 +72,7 @@
 				duration: 500,
 				banner: [],
 				subtitles: [],
+				cartData: [],
 				ts: [],
 				griddata: [{
 						name: '每周上新',
@@ -115,7 +116,34 @@
 			}
 		},
 		methods: {
-
+			addCart(item) {
+				this.cartData.push(item)
+				let currentCart = uni.getStorage({
+					key: 'cartstorage',
+					success: function(res) {
+						console.log(res.data);
+					}
+				});
+				if(!currentCart){
+					uni.setStorage({
+					    key: 'cartstorage',
+					    data: this.cartData,
+					    success(res) {
+					        console.log(res);
+					    }
+					});
+				}else{
+					let cdata=JSON.parse(currentCart)
+					cdata.push(item)
+					uni.setStorage({
+					    key: 'cartstorage',
+					    data: cdata,
+					    success(res) {
+					        console.log(res);
+					    }
+					});
+				}
+			}
 		}
 	}
 </script>
@@ -136,6 +164,7 @@
 		display: flex;
 		justify-content: center;
 		margin-top: 20rpx;
+
 		.grid-pic {
 			width: 30px;
 			height: 30px;
@@ -207,8 +236,8 @@
 					}
 
 					.addbtn {
-						width: 30rpx;
-						height: 30rpx;
+						width: 37rpx;
+						height: 37rpx;
 
 					}
 				}

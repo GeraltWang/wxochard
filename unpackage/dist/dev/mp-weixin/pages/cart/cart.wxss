@@ -1,0 +1,26 @@
+.toptext-box {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.scroll-list {
+  height: 1150rpx;
+  position: relative;
+  top: 50rpx;
+}
+.pro-check {
+  position: relative;
+  top: 30rpx;
+}
+.btn {
+  width: 50rpx;
+  height: 50rpx;
+}
+

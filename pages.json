@@ -7,25 +7,30 @@
 	}, {
 		"path": "pages/cart/cart",
 		"style": {
-			"navigationBarTitleText": "购物车"
+			"navigationBarTitleText": "购物车",
+			"usingComponents": {
+				"van-card": "/wxcomponents/vant/dist/card/index",
+				"van-submit-bar": "/wxcomponents/vant/dist/submit-bar/index",
+				"van-checkbox": "/wxcomponents/vant/dist/checkbox/index",
+				"van-checkbox-group": "/wxcomponents/vant/dist/checkbox-group/index",
+				"van-button": "/wxcomponents/vant/dist/button/index"
+			}
 		}
-	}    ,{
-            "path" : "pages/kind/kind",
-            "style" : {
-				"navigationBarTitleText": "分类",
-				"usingComponents": {
-				  "van-sidebar": "/wxcomponents/vant/dist/sidebar/index",
-				  "van-sidebar-item": "/wxcomponents/vant/dist/sidebar-item/index"
-				}
+	}, {
+		"path": "pages/kind/kind",
+		"style": {
+			"navigationBarTitleText": "分类",
+			"usingComponents": {
+				"van-sidebar": "/wxcomponents/vant/dist/sidebar/index",
+				"van-sidebar-item": "/wxcomponents/vant/dist/sidebar-item/index"
 			}
-        }
-        ,{
-            "path" : "pages/me/me",
-            "style" : {
-				"navigationBarTitleText": "我的果园"
-			}
-        }
-    ],
+		}
+	}, {
+		"path": "pages/me/me",
+		"style": {
+			"navigationBarTitleText": "我的果园"
+		}
+	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "uni-app",
