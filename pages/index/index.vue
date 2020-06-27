@@ -117,32 +117,76 @@
 		},
 		methods: {
 			addCart(item) {
-				this.cartData.push(item)
+				// try {
+				// 	const currentCart = uni.getStorageSync('cartstorage');
+				// 	if (currentCart) {
+				// 		// console.log(value);
+				// 		let cdata = JSON.parse(currentCart)
+				// 		cdata.push(item)
+				// 		uni.setStorageSync('cartstorage', cdata);
+				// 	} else {
+				// 		let bdata = []
+				// 		bdata.push(item)
+				// 		uni.setStorageSync('cartstorage', bdata);
+				// 	}
+				// } catch (e) {
+
+				// }
 				let currentCart = uni.getStorage({
 					key: 'cartstorage',
-					success: function(res) {
+					success(res) {
 						console.log(res.data);
 					}
-				});
-				if(!currentCart){
-					uni.setStorage({
-					    key: 'cartstorage',
-					    data: this.cartData,
-					    success(res) {
-					        console.log(res);
-					    }
-					});
-				}else{
-					let cdata=JSON.parse(currentCart)
-					cdata.push(item)
-					uni.setStorage({
-					    key: 'cartstorage',
-					    data: cdata,
-					    success(res) {
-					        console.log(res);
-					    }
-					});
+				}) || []
+				var flag = true
+				var product = {
+					"name": item.title,
+					"price": item.price,
+					"weight": item.volume,
+					"url": item.image,
+					"sum": 1
 				}
+				for (let i = 0; i < currentCart.length; i++) {
+					if (item.title == currentCart[i].name) {
+						currentCart[i].sum++
+						flag = false
+						break;
+					}
+				}
+				if (flag) {
+					currentCart.push(product)
+				}
+				uni.setStorage({
+					key: 'cartstorage',
+					data: currentCart,
+					success(res) {
+						console.log(res, 1);
+					}
+				});
+				// localStorage.setItem("cartData", JSON.stringify(this.cartArr));
+				// if (!currentCart) {
+				// 	this.cartData.push(item)
+				// 	// let bdata = []
+				// 	// bdata.push(item)
+				// 	uni.setStorage({
+				// 		key: 'cartstorage',
+				// 		data: this.cartData,
+				// 		success(res) {
+				// 			console.log(res);
+
+				// 		}
+				// 	});
+				// } else {
+				// 	let cdata = JSON.parse(currentCart)
+				// 	cdata.push(item)
+				// 	uni.setStorage({
+				// 		key: 'cartstorage',
+				// 		data: cdata,
+				// 		success(res) {
+				// 			console.log(res, 1);
+				// 		}
+				// 	});
+				// }
 			}
 		}
 	}

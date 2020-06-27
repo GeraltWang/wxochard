@@ -261,32 +261,76 @@ var _default =
   },
   methods: {
     addCart: function addCart(item) {
-      this.cartData.push(item);
+      // try {
+      // 	const currentCart = uni.getStorageSync('cartstorage');
+      // 	if (currentCart) {
+      // 		// console.log(value);
+      // 		let cdata = JSON.parse(currentCart)
+      // 		cdata.push(item)
+      // 		uni.setStorageSync('cartstorage', cdata);
+      // 	} else {
+      // 		let bdata = []
+      // 		bdata.push(item)
+      // 		uni.setStorageSync('cartstorage', bdata);
+      // 	}
+      // } catch (e) {
+
+      // }
       var currentCart = uni.getStorage({
         key: 'cartstorage',
         success: function success(res) {
           console.log(res.data);
+        } }) ||
+      [];
+      var flag = true;
+      var product = {
+        "name": item.title,
+        "price": item.price,
+        "weight": item.volume,
+        "url": item.image,
+        "sum": 1 };
+
+      for (var i = 0; i < currentCart.length; i++) {
+        if (item.title == currentCart[i].name) {
+          currentCart[i].sum++;
+          flag = false;
+          break;
+        }
+      }
+      if (flag) {
+        currentCart.push(product);
+      }
+      uni.setStorage({
+        key: 'cartstorage',
+        data: currentCart,
+        success: function success(res) {
+          console.log(res, 1);
         } });
 
-      if (!currentCart) {
-        uni.setStorage({
-          key: 'cartstorage',
-          data: this.cartData,
-          success: function success(res) {
-            console.log(res);
-          } });
+      // localStorage.setItem("cartData", JSON.stringify(this.cartArr));
+      // if (!currentCart) {
+      // 	this.cartData.push(item)
+      // 	// let bdata = []
+      // 	// bdata.push(item)
+      // 	uni.setStorage({
+      // 		key: 'cartstorage',
+      // 		data: this.cartData,
+      // 		success(res) {
+      // 			console.log(res);
 
-      } else {
-        var cdata = JSON.parse(currentCart);
-        cdata.push(item);
-        uni.setStorage({
-          key: 'cartstorage',
-          data: cdata,
-          success: function success(res) {
-            console.log(res);
-          } });
-
-      }
+      // 		}
+      // 	});
+      // } else {
+      // 	let cdata = JSON.parse(currentCart)
+      // 	cdata.push(item)
+      // 	uni.setStorage({
+      // 		key: 'cartstorage',
+      // 		data: cdata,
+      // 		success(res) {
+      // 			console.log(res, 1);
+      // 		}
+      // 	});
+      // }
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
