@@ -78,7 +78,7 @@
 .jj .scroll .scroll-inside .orangebox .text-color.data-v-57280228 {
   font-size: 12px;
   place-self: center;
-  color: #FE8F00;
+  color: #fe8f00;
 }
 .jj .scroll .scroll-inside .orangebox .addbtn.data-v-57280228 {
   width: 37rpx;

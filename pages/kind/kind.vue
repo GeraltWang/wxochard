@@ -11,7 +11,8 @@
 			</view>
 			<view class="card">
 				<view class="card-item" v-for="(item,index) in subCategoryList[0].classGroup" :key=index>
-					<image :src="'http://192.168.123.204:8088/'+item.class_photo" mode="" class="card-item-img"></image>
+					<!-- <image :src="'http://192.168.123.204:8088/'+item.class_photo" mode="" class="card-item-img"></image> -->
+					<image :src="'http://192.168.0.167:8088/'+item.class_photo" mode="" class="card-item-img"></image>
 					<text>{{item.name}}</text>
 				</view>
 			</view>
@@ -24,7 +25,8 @@
 	export default {
 		created() {
 			uni.request({
-				url: 'http://192.168.123.204:8088/data/category_list.json',
+				// url: 'http://192.168.123.204:8088/data/category_list.json',
+				url: 'http://192.168.0.167:8088/data/category_list.json',
 				method: 'GET',
 				header: {
 					'content-type': 'application/json'
@@ -36,7 +38,8 @@
 				}
 			});
 			uni.request({
-				url: `http://192.168.123.204:8088/data/category_list_${this.id}.json`,
+				// url: `http://192.168.123.204:8088/data/category_list_${this.id}.json`,
+				url: `http://192.168.0.167:8088/data/category_list_${this.id}.json`,
 				method: 'GET',
 				header: {
 					'content-type': 'application/json'
@@ -64,7 +67,8 @@
 				console.log(e)
 				this.id = e
 				uni.request({
-					url: `http://192.168.123.204:8088/data/category_list_${this.id}.json`,
+					// url: `http://192.168.123.204:8088/data/category_list_${this.id}.json`,
+					url: `http://192.168.0.167:8088/data/category_list_${this.id}.json`,
 					method: 'GET',
 					header: {
 						'content-type': 'application/json'

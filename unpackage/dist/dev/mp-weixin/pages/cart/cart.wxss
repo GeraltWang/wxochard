@@ -15,12 +15,11 @@
   position: relative;
   top: 50rpx;
 }
-.pro-check {
+.scroll-list .cardd {
+  width: 100%;
+}
+.scroll-list .pro-check {
   position: relative;
   top: 30rpx;
-}
-.btn {
-  width: 50rpx;
-  height: 50rpx;
 }
 

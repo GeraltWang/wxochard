@@ -28,9 +28,19 @@
 	}, {
 		"path": "pages/me/me",
 		"style": {
-			"navigationBarTitleText": "我的果园"
+			"navigationBarTitleText": "我的果园",
+			"usingComponents": {
+				"van-skeleton": "/wxcomponents/vant/dist/skeleton/index",
+				"van-button": "/wxcomponents/vant/dist/button/index",
+				"van-icon": "/wxcomponents/vant/dist/icon/index"
+			}
+			 
 		}
-	}],
+	}    ,{
+            "path" : "pages/product/product",
+            "style" : {}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "uni-app",

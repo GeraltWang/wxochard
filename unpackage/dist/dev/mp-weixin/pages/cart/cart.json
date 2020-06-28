@@ -1,6 +1,8 @@
 {
   "navigationBarTitleText": "购物车",
   "usingComponents": {
+    "uni-swipe-action": "/components/uni-swipe-action/uni-swipe-action",
+    "uni-swipe-action-item": "/components/uni-swipe-action-item/uni-swipe-action-item",
     "van-card": "/wxcomponents/vant/dist/card/index",
     "van-submit-bar": "/wxcomponents/vant/dist/submit-bar/index",
     "van-checkbox": "/wxcomponents/vant/dist/checkbox/index",
