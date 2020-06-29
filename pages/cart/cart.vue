@@ -6,10 +6,11 @@
 		</view>
 		<scroll-view scroll-y="true" class="scroll-list">
 			<view>
-				<!-- <van-card :price="item.price" :desc=item.volume :title=item.title :thumb="'http://192.168.123.204:8088/'+item.image"> -->
+				
 				<uni-swipe-action>
 					<uni-swipe-action-item v-for="(item, index) in data" :key="index" :options="options" @click="del(index)">
-						<van-card :price="item.price" :desc="item.weight" :title="item.name" :thumb="'http://192.168.0.167:8088/' + item.url" class="cardd">
+						<van-card :price="item.price" :desc="item.weight" :title="item.name" :thumb="'http://192.168.123.204:8088/'+item.url" class="cardd">
+						<!-- <van-card :price="item.price" :desc="item.weight" :title="item.name" :thumb="'http://192.168.0.167:8088/' + item.url" class="cardd"> -->
 							<view slot="tags">
 								<van-tag mark type="primary">次日达</van-tag>
 								<van-tag mark type="success">放心购</van-tag>
@@ -158,7 +159,7 @@ export default {
 			uni.showModal({
 				title: '提示',
 				content: `您购买了${this.getnum}件商品，共计${this.getsum}元
-											确定结算吗？`,
+									  确定结算吗？`,
 				success:res=> {
 					if (res.confirm) {
 						console.log(this.data)

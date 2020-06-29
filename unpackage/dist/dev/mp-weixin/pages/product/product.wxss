@@ -1,9 +1,61 @@
 .swiper.data-v-2fbdbe34 {
   width: 100%;
-  height: 160px;
+  height: 290px;
 }
 .swiper .banner-img.data-v-2fbdbe34 {
   width: 100%;
-  height: 320rpx;
+  height: 600rpx;
+}
+.card.data-v-2fbdbe34 {
+  margin: auto;
+  width: 90%;
+  height: 270px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  border-radius: 30rpx;
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 5px 0px;
+  position: absolute;
+  top: 250px;
+  left: 18.5px;
+  background-color: #FFFFFF;
+}
+.card .title.data-v-2fbdbe34 {
+  font-weight: bold;
+}
+.card .subtitle.data-v-2fbdbe34 {
+  color: gray;
+}
+.card .price.data-v-2fbdbe34 {
+  color: #FF8000;
+  font-size: 22px;
+  font-weight: bold;
+}
+.card .sendtime.data-v-2fbdbe34 {
+  font-size: 13px;
+  color: gray;
+}
+.card .service.data-v-2fbdbe34 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  width: 90%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+.img.data-v-2fbdbe34 {
+  width: 100%;
 }
 

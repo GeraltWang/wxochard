@@ -44,7 +44,13 @@
 		}
 	}, {
 		"path": "pages/product/product",
-		"style": {}
+		"style": {
+			"navigationBarTitleText": "商品详情",
+			"usingComponents": {
+				"van-button": "/wxcomponents/vant/dist/button/index",
+				"van-icon": "/wxcomponents/vant/dist/icon/index"
+			}
+		}
 	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
