@@ -8,12 +8,18 @@
 		"path": "pages/cart/cart",
 		"style": {
 			"navigationBarTitleText": "购物车",
+			"disableScroll": true,
+			"app-plus": {
+				"bounce": "none"
+			},
 			"usingComponents": {
 				"van-card": "/wxcomponents/vant/dist/card/index",
+				"van-tag": "/wxcomponents/vant/dist/tag/index",
 				"van-submit-bar": "/wxcomponents/vant/dist/submit-bar/index",
 				"van-checkbox": "/wxcomponents/vant/dist/checkbox/index",
 				"van-checkbox-group": "/wxcomponents/vant/dist/checkbox-group/index",
-				"van-button": "/wxcomponents/vant/dist/button/index"
+				"van-button": "/wxcomponents/vant/dist/button/index",
+				"van-dialog": "/wxcomponents/vant/dist/dialog/index"
 			}
 		}
 	}, {
@@ -34,13 +40,12 @@
 				"van-button": "/wxcomponents/vant/dist/button/index",
 				"van-icon": "/wxcomponents/vant/dist/icon/index"
 			}
-			 
+
 		}
-	}    ,{
-            "path" : "pages/product/product",
-            "style" : {}
-        }
-    ],
+	}, {
+		"path": "pages/product/product",
+		"style": {}
+	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "uni-app",

@@ -195,6 +195,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 var _default =
 {
   created: function created() {var _this = this;
@@ -268,6 +270,7 @@ var _default =
   },
   methods: {
     addCart: function addCart(item) {
+      console.log(item);
       uni.getStorage({
         key: 'cartstorage',
         success: function success(res) {
@@ -305,13 +308,15 @@ var _default =
           console.log(res);
           uni.setStorage({
             key: 'cartstorage',
-            data: [{
+            data: [
+            {
               name: item.title,
               price: item.price,
               weight: item.volume,
               url: item.image,
               sum: 1,
               checked: true }],
+
 
             success: function success() {
               console.log('success');

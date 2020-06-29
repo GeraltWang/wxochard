@@ -172,23 +172,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
       data: [],
       weight: 0,
-      total: 0,
-      allchecked: true,
+      allchecked: false,
       options: [
       {
-        text: '取消',
-        style: {
-          backgroundColor: '#007aff' } },
-
-
-      {
-        text: '确认',
+        text: '删除',
         style: {
           backgroundColor: '#dd524d' } }] };
 
@@ -256,7 +254,106 @@ var _default =
           } });
 
       }
-    } } };exports.default = _default;
+    },
+    add: function add(index) {
+      console.log(index);
+      this.data[index].sum++;
+      uni.setStorage({
+        key: 'cartstorage',
+        data: this.data,
+        success: function success() {
+          console.log('success');
+        } });
+
+    },
+    reduce: function reduce(index) {
+      console.log(index);
+      if (this.data[index].sum > 1) {
+        this.data[index].sum--;
+      } else {
+        this.data[index].sum = 1;
+      }
+      // this.data[index].sum--;
+      uni.setStorage({
+        key: 'cartstorage',
+        data: this.data,
+        success: function success() {
+          console.log('success');
+        } });
+
+    },
+    del: function del(index) {
+      console.log(index);
+      this.data.splice(index, 1);
+      uni.setStorage({
+        key: 'cartstorage',
+        data: this.data,
+        success: function success() {
+          console.log('success');
+        } });
+
+    },
+    checkout: function checkout() {var _this2 = this;
+      uni.showModal({
+        title: '提示',
+        content: "\u60A8\u8D2D\u4E70\u4E86".concat(this.getnum, "\u4EF6\u5546\u54C1\uFF0C\u5171\u8BA1").concat(this.getsum, "\u5143\n\t\t\t\t\t\t\t\t\t\t\t\u786E\u5B9A\u7ED3\u7B97\u5417\uFF1F"),
+
+        success: function success(res) {
+          if (res.confirm) {
+            console.log(_this2.data);
+
+            var cc = _this2.data.filter(function (item) {return item.checked == false;});
+            uni.setStorage({
+              key: 'cartstorage',
+              data: cc,
+              success: function success() {
+                _this2.data = cc;
+
+              } });
+
+          } else if (res.cancel) {
+            console.log('用户点击取消');
+          }
+        } });
+
+    } },
+
+  computed: {
+    getsum: function getsum() {
+      var totalP = 0;
+      this.data.map(function (item) {
+        return item.checked ? totalP += Number(item.price) * item.sum : totalP += 0;
+      });
+      return totalP.toFixed(2);
+    },
+    getnum: function getnum() {
+      var totalN = 0;
+      this.data.map(function (item) {
+        return item.checked ? totalN += Number(item.sum) : totalN += 0;
+      });
+      return totalN;
+    } },
+
+  watch: {
+    data: {
+      handler: function handler(value) {
+        var _this = this;
+        var count = 0;
+        for (var i = 0; i < value.length; i++) {
+          if (value[i].checked == true) {
+            count++;
+          }
+        }
+        //如果子集全部选中，全选按钮设置选中状态
+        if (count == value.length) {
+          _this.allchecked = true;
+        } else if (value.length == 0) {
+          _this.allchecked = false;
+        } else {
+          _this.allchecked = false;
+        }
+      },
+      deep: true } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

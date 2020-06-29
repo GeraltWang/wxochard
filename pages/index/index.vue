@@ -28,20 +28,22 @@
 					</view>
 					<view class="jj">
 						<scroll-view scroll-x="true" class="scroll">
-							<view class="scroll-inside" v-for="(tem, index) in item.content" :key="index">
-								<!-- <image :src="'http://192.168.123.204:8088/'+tem.image" mode="" class="sc-img"></image> -->
-								<image :src="'http://192.168.0.167:8088/' + tem.image" mode="" class="sc-img"></image>
-								<view class="limit">
-									<text class="text-b">{{ tem.subtitle }}</text>
-								</view>
-								<view class="limit">
-									<text class="text">{{ tem.title }}</text>
-								</view>
-								<view class="orangebox">
-									<text class="text-color">￥{{ tem.price }}元/{{ tem.volume }}</text>
-									<!-- <image class="addbtn" src="http://192.168.123.204:8088/images/cart.png" mode="" @click="addCart(tem)"></image> -->
-									<image class="addbtn" src="http://192.168.0.167:8088/images/cart.png" mode="" @click="addCart(tem)"></image>
-								</view>
+							<view class="scroll-inside" v-for="tem in item.content" :key="tem.title">
+								<navigator :url="'../product/product?id=' + tem.product_id+'&name='+tem.title">
+									<!-- <image :src="'http://192.168.123.204:8088/'+tem.image" mode="" class="sc-img"></image> -->
+									<image :src="'http://192.168.0.167:8088/' + tem.image" mode="" class="sc-img"></image>
+									<view class="limit">
+										<text class="text-b">{{ tem.subtitle }}</text>
+									</view>
+									<view class="limit">
+										<text class="text">{{ tem.title }}</text>
+									</view>
+									<view class="orangebox">
+										<text class="text-color">￥{{ tem.price }}元/{{ tem.volume }}</text>
+										<!-- <image class="addbtn" src="http://192.168.123.204:8088/images/cart.png" mode="" @click="addCart(tem)"></image> -->
+										<image class="addbtn" src="http://192.168.0.167:8088/images/cart.png" mode="" @click="addCart(tem)"></image>
+									</view>
+								</navigator>
 							</view>
 						</scroll-view>
 					</view>
@@ -124,6 +126,7 @@ export default {
 	},
 	methods: {
 		addCart(item) {
+			console.log(item);
 			uni.getStorage({
 				key: 'cartstorage',
 				success(res) {
@@ -133,7 +136,7 @@ export default {
 					console.log(dd);
 					for (var i = 0; i < res.data.length; i++) {
 						if (dd[i].name == item.title) {
-							dd[i].sum++
+							dd[i].sum++;
 							count++;
 						}
 					}
@@ -145,7 +148,7 @@ export default {
 							weight: item.volume,
 							url: item.image,
 							sum: 1,
-							checked:true
+							checked: true
 						});
 					}
 
@@ -161,14 +164,16 @@ export default {
 					console.log(res);
 					uni.setStorage({
 						key: 'cartstorage',
-						data: [{
-							name: item.title,
-							price: item.price,
-							weight: item.volume,
-							url: item.image,
-							sum: 1,
-							checked:true
-						}],
+						data: [
+							{
+								name: item.title,
+								price: item.price,
+								weight: item.volume,
+								url: item.image,
+								sum: 1,
+								checked: true
+							}
+						],
 						success() {
 							console.log('success');
 						}
@@ -183,10 +188,11 @@ export default {
 <style lang="less" scoped>
 .swiper {
 	width: 100%;
-	height: 240px;
+	height: 160px;
 
 	.banner-img {
 		width: 100%;
+		height: 320rpx;
 	}
 }
 

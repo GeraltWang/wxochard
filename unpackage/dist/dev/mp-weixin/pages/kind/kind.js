@@ -152,7 +152,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 var _default =
 {
   created: function created() {var _this = this;
@@ -191,7 +190,6 @@ var _default =
       scrollHeight: 0,
       activeKey: 0,
       id: 478 };
-
 
   },
   methods: {

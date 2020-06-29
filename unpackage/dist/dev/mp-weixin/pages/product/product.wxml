@@ -1,1 +1,1 @@
-<view></view>
+<view class="data-v-2fbdbe34"><swiper class="swiper data-v-2fbdbe34" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true"><block wx:for="{{page.templatePhoto}}" wx:for-item="item" wx:for-index="index" wx:key="index"><swiper-item class="data-v-2fbdbe34"><view class="data-v-2fbdbe34"><image class="banner-img data-v-2fbdbe34" src="{{'http://192.168.0.167:8088/'+item}}" mode></image></view></swiper-item></block></swiper></view>

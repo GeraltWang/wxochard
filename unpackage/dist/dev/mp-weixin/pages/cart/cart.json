@@ -1,12 +1,15 @@
 {
   "navigationBarTitleText": "购物车",
+  "disableScroll": true,
   "usingComponents": {
     "uni-swipe-action": "/components/uni-swipe-action/uni-swipe-action",
     "uni-swipe-action-item": "/components/uni-swipe-action-item/uni-swipe-action-item",
     "van-card": "/wxcomponents/vant/dist/card/index",
+    "van-tag": "/wxcomponents/vant/dist/tag/index",
     "van-submit-bar": "/wxcomponents/vant/dist/submit-bar/index",
     "van-checkbox": "/wxcomponents/vant/dist/checkbox/index",
     "van-checkbox-group": "/wxcomponents/vant/dist/checkbox-group/index",
-    "van-button": "/wxcomponents/vant/dist/button/index"
+    "van-button": "/wxcomponents/vant/dist/button/index",
+    "van-dialog": "/wxcomponents/vant/dist/dialog/index"
   }
 }
