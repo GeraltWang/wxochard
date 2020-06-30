@@ -4,6 +4,7 @@
   "usingComponents": {
     "uni-swipe-action": "/components/uni-swipe-action/uni-swipe-action",
     "uni-swipe-action-item": "/components/uni-swipe-action-item/uni-swipe-action-item",
+    "van-icon": "/wxcomponents/vant/dist/icon/index",
     "van-card": "/wxcomponents/vant/dist/card/index",
     "van-tag": "/wxcomponents/vant/dist/tag/index",
     "van-submit-bar": "/wxcomponents/vant/dist/submit-bar/index",

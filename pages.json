@@ -13,6 +13,7 @@
 				"bounce": "none"
 			},
 			"usingComponents": {
+				"van-icon": "/wxcomponents/vant/dist/icon/index",
 				"van-card": "/wxcomponents/vant/dist/card/index",
 				"van-tag": "/wxcomponents/vant/dist/tag/index",
 				"van-submit-bar": "/wxcomponents/vant/dist/submit-bar/index",
@@ -50,6 +51,18 @@
 				"van-button": "/wxcomponents/vant/dist/button/index",
 				"van-icon": "/wxcomponents/vant/dist/icon/index"
 			}
+		}
+	}, {
+		"path": "pages/tab/tab",
+		"style": {
+			"navigationBarTitleText": "更多产品",
+			"usingComponents": {
+				"van-button": "/wxcomponents/vant/dist/button/index",
+				"van-icon": "/wxcomponents/vant/dist/icon/index",
+				"van-tab": "/wxcomponents/vant/dist/tab/index",
+				"van-tabs": "/wxcomponents/vant/dist/tabs/index"
+			}
+
 		}
 	}],
 	"globalStyle": {

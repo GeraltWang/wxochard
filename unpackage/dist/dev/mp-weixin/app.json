@@ -4,7 +4,8 @@
     "pages/cart/cart",
     "pages/kind/kind",
     "pages/me/me",
-    "pages/product/product"
+    "pages/product/product",
+    "pages/tab/tab"
   ],
   "subPackages": [],
   "window": {
@@ -46,5 +47,5 @@
     ]
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap47.json"
+  "sitemapLocation": "sitemap55.json"
 }

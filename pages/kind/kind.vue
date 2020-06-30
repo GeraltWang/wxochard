@@ -12,8 +12,8 @@
 						<text>{{ item.className.name }}</text>
 					</view>
 					<view class="card-item" v-for="(tem, index) in item.classGroup" :key="index">
-						<image :src="'http://192.168.123.204:8088/'+item.class_photo" mode="" class="card-item-img"></image>
-						<!-- <image :src="'http://192.168.0.167:8088/' + tem.class_photo" mode="" class="card-item-img"></image> -->
+						<!-- <image :src="'http://192.168.123.204:8088/'+item.class_photo" mode="" class="card-item-img"></image> -->
+						<image :src="'http://192.168.0.167:8088/' + tem.class_photo" mode="" class="card-item-img"></image>
 						<text class="card-item-text">{{ tem.name }}</text>
 					</view>
 				</view>
@@ -26,8 +26,8 @@
 	export default {
 		created() {
 			uni.request({
-				url: 'http://192.168.123.204:8088/data/category_list.json',
-				// url: 'http://192.168.0.167:8088/data/category_list.json',
+				// url: 'http://192.168.123.204:8088/data/category_list.json',
+				url: 'http://192.168.0.167:8088/data/category_list.json',
 				method: 'GET',
 				header: {
 					'content-type': 'application/json'
@@ -39,8 +39,8 @@
 				}
 			});
 			uni.request({
-				url: `http://192.168.123.204:8088/data/category_list_${this.id}.json`,
-				// url: `http://192.168.0.167:8088/data/category_list_${this.id}.json`,
+				// url: `http://192.168.123.204:8088/data/category_list_${this.id}.json`,
+				url: `http://192.168.0.167:8088/data/category_list_${this.id}.json`,
 				method: 'GET',
 				header: {
 					'content-type': 'application/json'
@@ -67,8 +67,8 @@
 				console.log(e);
 				this.id = e;
 				uni.request({
-					url: `http://192.168.123.204:8088/data/category_list_${this.id}.json`,
-					// url: `http://192.168.0.167:8088/data/category_list_${this.id}.json`,
+					// url: `http://192.168.123.204:8088/data/category_list_${this.id}.json`,
+					url: `http://192.168.0.167:8088/data/category_list_${this.id}.json`,
 					method: 'GET',
 					header: {
 						'content-type': 'application/json'
@@ -97,9 +97,9 @@
 			display: flex;
 			flex-direction: column;
 			width: 72%;
-			// margin-left: 10rpx;
+			
 			border-radius: 15rpx;
-
+			margin-bottom: 20rpx;
 			box-shadow: rgba(0, 0, 0, 0.2) 0 1px 5px 0px;
 		}
 
@@ -108,6 +108,8 @@
 			display: flex;
 			justify-content: center;
 			width: 100%;
+			font-size: 18px;
+			font-weight: bold;
 		}
 
 		.card {

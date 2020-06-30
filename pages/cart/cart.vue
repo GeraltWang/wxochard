@@ -6,22 +6,43 @@
 		</view>
 		<scroll-view scroll-y="true" class="scroll-list">
 			<view>
-				
 				<uni-swipe-action>
 					<uni-swipe-action-item v-for="(item, index) in data" :key="index" :options="options" @click="del(index)">
-						<van-card :price="item.price" :desc="item.weight" :title="item.name" :thumb="'http://192.168.123.204:8088/'+item.url" class="cardd">
-						<!-- <van-card :price="item.price" :desc="item.weight" :title="item.name" :thumb="'http://192.168.0.167:8088/' + item.url" class="cardd"> -->
+						<!-- <van-card :price="item.price" :desc="item.weight" :title="item.name" :thumb="'http://192.168.123.204:8088/'+item.url" class="cardd"> -->
+						<!-- <van-card :price="item.price" :desc="item.weight" :title="item.name" :thumb="'http://192.168.0.167:8088/' + item.url" class="cardd">
 							<view slot="tags">
 								<van-tag mark type="primary">次日达</van-tag>
 								<van-tag mark type="success">放心购</van-tag>
 							</view>
 							<view slot="footer">
 								<van-checkbox class="pro-check" checked-color="#07c160" :value="item.checked" @change="selected(item)"></van-checkbox>
-								<van-button size="mini" type="primary" round @click="reduce(index)">-</van-button>
+								<button class="bb" size="mini" type="primary" round @click="reduce(index)">-</button>
 								<text>{{ item.sum }}</text>
-								<van-button size="mini" type="info" round @click="add(index)">+</van-button>
+								<button class="bb" size="mini" type="warn" round @click="add(index)">+</button>
 							</view>
-						</van-card>
+						</van-card> -->
+						<view class="detail-item">
+							<van-checkbox class="check" checked-color="#07c160" :value="item.checked" @change="selected(item)"></van-checkbox>
+							<view class="img"><image :src="'http://192.168.0.167:8088/' + item.url" mode=""></image></view>
+							<view class="detail-right">
+								<text class="t1">{{ item.name }}</text>
+								<text class="t3">{{ item.weight }}</text>
+								<view>
+									<van-tag mark type="primary">次日达</van-tag>
+									<van-tag mark type="success">放心购</van-tag>
+								</view>
+								<view class="detail-right-bottom">
+									<view class="bt">
+										<text class="bt1">￥{{ item.price }}</text>
+									</view>
+									<view class="bbbox">
+										<van-icon name="arrow-left" size="20px" @click="reduce(index)" />
+										<text>{{ item.sum }}</text>
+										<van-icon name="arrow" size="20px" @click="add(index)" />
+									</view>
+								</view>
+							</view>
+						</view>
 					</uni-swipe-action-item>
 				</uni-swipe-action>
 			</view>
@@ -156,28 +177,46 @@ export default {
 			});
 		},
 		checkout() {
-			uni.showModal({
-				title: '提示',
-				content: `您购买了${this.getnum}件商品，共计${this.getsum}元
-									  确定结算吗？`,
-				success:res=> {
-					if (res.confirm) {
-						console.log(this.data)
-						
-						var cc=this.data.filter(item=>item.checked==false)
-						uni.setStorage({
-							key: 'cartstorage',
-							data: cc,
-							success:()=> {
-								this.data=cc
-								
-							}
-						});
-					} else if (res.cancel) {
-						console.log('用户点击取消');
-					}
-				}
+			let flag = this.data.map(item => {
+				item.checked = true;
 			});
+			if (flag.length > 0) {
+				uni.showModal({
+					title: '提示',
+					content: `您购买了${this.getnum}件商品，共计${this.getsum}元
+										   确定结算吗？`,
+					success: res => {
+						if (res.confirm) {
+							console.log(this.data);
+
+							var cc = this.data.filter(item => item.checked == false);
+							uni.setStorage({
+								key: 'cartstorage',
+								data: cc,
+								success: () => {
+									this.data = cc;
+								}
+							});
+						} else if (res.cancel) {
+							console.log('用户点击取消');
+						}
+					}
+				});
+			} else {
+				uni.showModal({
+					title: '提示',
+					content: `购物车空空如也，要去商品页看看吗？`,
+					success: res => {
+						if (res.confirm) {
+							uni.switchTab({
+								url: '/pages/index/index'
+							});
+						} else if (res.cancel) {
+							console.log('用户点击取消');
+						}
+					}
+				});
+			}
 		}
 	},
 	computed: {
@@ -237,6 +276,9 @@ export default {
 	top: 50rpx;
 	.cardd {
 		width: 100%;
+		text {
+			font-size: 14px;
+		}
 	}
 	.pro-check {
 		position: relative;
@@ -262,6 +304,69 @@ export default {
 	}
 	.w {
 		place-self: center;
+	}
+}
+.detail-item {
+	width: 100%;
+	height: 220rpx;
+	display: grid;
+	grid-template-columns: 10% 25% 65%;
+	grid-auto-rows: 220rpx;
+	align-items: center;
+	margin-bottom: 10rpx;
+	border-bottom: 3rpx solid lightgray;
+	.check {
+		margin-left: 18rpx;
+	}
+	.img {
+		display: flex;
+		width: 100%;
+		image {
+			width: 170rpx;
+			height: 170rpx;
+			place-self: center;
+			box-sizing: border-box;
+			box-shadow: rgba(0, 0, 0, 0.2) 0 1px 5px 0px;
+		}
+	}
+	.detail-right {
+		display: grid;
+		width: 100%;
+		grid-template-columns: 100%;
+		grid-auto-rows: 50rpx 70rpx 40rpx 60rpx;
+		align-items: center;
+		.t1 {
+			color: gray;
+			font-size: 15px;
+		}
+		.t2 {
+			color: gray;
+			font-size: 14px;
+		}
+		.t3 {
+			color: gray;
+			font-size: 13px;
+		}
+		.detail-right-bottom {
+			display: flex;
+			width: 100%;
+			justify-content: space-between;
+			.bt {
+				width: 300rpx;
+			}
+			.bt1 {
+				display: inline-block;
+				width: 125rpx;
+				color: #ff8000;
+			}
+			.bbbox {
+				display: flex;
+				width: 70%;
+				align-items: center;
+				justify-content: flex-end;
+				margin-right: 20rpx;
+			}
+		}
 	}
 }
 </style>

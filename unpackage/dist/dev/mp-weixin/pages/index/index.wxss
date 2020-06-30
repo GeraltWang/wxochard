@@ -14,12 +14,18 @@
   -webkit-box-pack: center;
   -webkit-justify-content: center;
           justify-content: center;
-  margin-top: 20rpx;
+  margin-top: 80rpx;
+}
+.grid .grid-item.data-v-57280228 {
+  height: 130rpx;
 }
 .grid .grid-pic.data-v-57280228 {
   width: 30px;
   height: 30px;
   place-self: center;
+}
+.bannerview.data-v-57280228 {
+  margin-top: 70rpx;
 }
 .text.data-v-57280228 {
   font-size: 12px;

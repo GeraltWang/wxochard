@@ -21,6 +21,7 @@
           flex-direction: column;
   width: 72%;
   border-radius: 15rpx;
+  margin-bottom: 20rpx;
   box-shadow: rgba(0, 0, 0, 0.2) 0 1px 5px 0px;
 }
 .main .card-text.data-v-1efcdcf4 {
@@ -32,6 +33,8 @@
   -webkit-justify-content: center;
           justify-content: center;
   width: 100%;
+  font-size: 18px;
+  font-weight: bold;
 }
 .main .card.data-v-1efcdcf4 {
   display: -webkit-box;

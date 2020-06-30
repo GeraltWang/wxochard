@@ -2,7 +2,7 @@
 	<view class="all">
 		<view class="user">
 			<view class="userinfo" v-if="login">
-				<van-skeleton title avatar animate :row="3" :loading="loading">
+				
 					<view class="top">
 						<image class="userinfo-img" :src="user.avatarUrl"></image>
 						<view class="top-text">
@@ -28,14 +28,14 @@
 							<text>-</text>
 						</view>
 					</view>
-				</van-skeleton>
+				
 			</view>
 			<view class="userinfo" v-else>
 				<view class="top">
-					<image class="userinfo-img" :src="user.avatarUrl"></image>
+					<image class="userinfo-img" src="http://192.168.0.167:8088/images/xiaotian.png"></image>
 					<view class="top-text">
 						<text @click="loginclick">登录/注册</text>
-						<text>签到送好礼</text>
+						<van-button color="linear-gradient(to right, #4bb0ff, #6149f6)" size="small" round>签到送好礼</van-button>
 					</view>
 				</view>
 				<view class="grid">
@@ -66,7 +66,7 @@
 
 			<uni-grid :column="5" :show-border="false" :square="false" class="gridd">
 				<uni-grid-item v-for="(item, index) in listgrid" :key="index" class="gridd-item">
-					<van-icon :name="item.logo" />
+					<van-icon :name="item.logo" size="30px"/>
 					<text class="grid-text">{{ item.name }}</text>
 				</uni-grid-item>
 			</uni-grid>
@@ -79,18 +79,18 @@
 		
 			<uni-grid :column="5" :show-border="false" :square="false" class="gridd">
 				<uni-grid-item v-for="(item, index) in listgrid" :key="index" class="gridd-item">
-					<van-icon :name="item.logo" />
+					<van-icon :name="item.logo" size="30px"/>
 					<text class="grid-text">{{ item.name }}</text>
 				</uni-grid-item>
 			</uni-grid>
 		</view>
 		<view class="foot">
-			<uni-grid :column="5" :show-border="false" :square="false" class="gridd">
-				<uni-grid-item v-for="(item, index) in lastgrid" :key="index" class="gridd-item">
-					<van-icon :name="item.logo" />
+			<view class="gridd">
+				<view class="gridd-item" v-for="(item, index) in lastgrid" :key="index">
+					<van-icon :name="item.logo" size="30px"/>
 					<text class="grid-text">{{ item.name }}</text>
-				</uni-grid-item>
-			</uni-grid>
+				</view>
+			</view>
 		</view>
 	</view>
 </template>
@@ -120,25 +120,6 @@ export default {
 			]
 		};
 	},
-	mounted() {
-		this.loading = false;
-	},
-	// onLoad() {
-	// 	let that = this;
-	// 	uni.login({
-	// 		provider: 'weixin',
-	// 		success: function(loginRes) {
-	// 			// 获取用户信息
-	// 			uni.getUserInfo({
-	// 				provider: 'weixin',
-	// 				success: function(infoRes) {
-	// 					that.user = infoRes.userInfo;
-	// 					console.log(that.user);
-	// 				}
-	// 			});
-	// 		}
-	// 	});
-	// },
 	methods: {
 		loginclick() {
 			let that = this;
@@ -218,6 +199,9 @@ export default {
 			flex-direction: column;
 			align-items: center;
 			font-size: 14px;
+			text{
+				font-size: 14px;
+			}
 		}
 	}
 }
@@ -228,7 +212,6 @@ export default {
 	flex-direction: column;
 	justify-content: space-around;
 	margin: auto;
-	// align-items: center;
 	border-radius: 15rpx;
 	margin-top: 20rpx;
 	box-sizing: border-box;
@@ -237,13 +220,17 @@ export default {
 		display: flex;
 		width: 100%;
 		justify-content: space-between;
+		margin-top: 10px;
+		margin-bottom: 40px;
 		text:nth-child(1)
 		{
 		margin-left: 26rpx;
+		font-size: 14px;
 		}
 		text:nth-child(2)
 		{
 		margin-right: 26rpx;
+		font-size: 14px;
 		}
 	}
 }
@@ -251,9 +238,10 @@ export default {
 	width: 100%;
 	height: 100rpx;
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
 	align-items: center;
 	margin-top: 20rpx;
+	margin: auto;
 	.gridd-item {
 		display: flex;
 		place-self: center;
@@ -261,6 +249,7 @@ export default {
 	}
 	.grid-text{
 		place-self: center;
+		font-size: 14px;
 	}
 }
 .foot{
@@ -269,13 +258,16 @@ export default {
 	display: flex;
 	.gridd {
 		width: 100%;
-		height: 100rpx;
-		display: flex;
+		grid-template-columns: repeat(4,25%);
+		grid-template-rows: repeat(2,150rpx);
+		display: grid;
 		justify-content: center;
+		flex-direction: column;
 		align-items: center;
-		margin-top: 20rpx;
 		.gridd-item {
+			width: 100%;
 			display: flex;
+			flex-direction: column;
 			place-self: center;
 			
 		}
