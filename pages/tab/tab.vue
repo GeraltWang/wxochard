@@ -4,7 +4,8 @@
 		  <van-tab v-for="item in data" :title="item.name" :key="item.id">
 			  <view class="detail-item" v-for="(tem,index) in item.productGroup" :key="index">
 			  	<view class="img">
-			  		<image :src="'http://192.168.0.167:8088/' + tem.photo" mode=""></image>
+			  		<!-- <image :src="'http://192.168.0.167:8088/' + tem.photo" mode=""></image> -->
+			  		<image :src="'http://192.168.123.204:8088/' + tem.photo" mode=""></image>
 			  	</view>
 				<view class="detail-right">
 					<text class="t1">{{tem.product_name}}</text>
@@ -15,7 +16,8 @@
 							<text class="bt1">￥{{tem.price}}</text>
 						<text class="bt2" v-for="(em,index) in tem.cart_tag_list" :key="index">{{em}}</text>
 						</view>
-						<image class="addbtn" src="http://192.168.0.167:8088/images/cart.png" mode="" @click="addCart(tem)"></image>
+						<!-- <image class="addbtn" src="http://192.168.0.167:8088/images/cart.png" mode="" @click="addCart(tem)"></image> -->
+						<image class="addbtn" src="http://192.168.123.204:8088/images/cart.png" mode="" @click="addCart(tem)"></image>
 					</view>
 				</view>
 			  </view>
@@ -47,8 +49,8 @@
 			},
 			request(js) {
 				uni.request({
-					// url: `http://192.168.123.204:8088/data/good_detail_${js.id}.json`,
-					url: `http://192.168.0.167:8088/data/sub_category_list_${js.id}.json`,
+					url: `http://192.168.123.204:8088/data/sub_category_list_${js.id}.json`,
+					// url: `http://192.168.0.167:8088/data/sub_category_list_${js.id}.json`,
 					method: 'GET',
 					header: {
 						'content-type': 'application/json'

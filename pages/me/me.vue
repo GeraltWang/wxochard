@@ -32,7 +32,8 @@
 			</view>
 			<view class="userinfo" v-else>
 				<view class="top">
-					<image class="userinfo-img" src="http://192.168.0.167:8088/images/xiaotian.png"></image>
+					<!-- <image class="userinfo-img" src="http://192.168.0.167:8088/images/xiaotian.png"></image> -->
+					<image class="userinfo-img" src="http://192.168.123.204:8088/images/xiaotian.png"></image>
 					<view class="top-text">
 						<text @click="loginclick">登录/注册</text>
 						<van-button color="linear-gradient(to right, #4bb0ff, #6149f6)" size="small" round>签到送好礼</van-button>

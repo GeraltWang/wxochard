@@ -6,8 +6,8 @@
 					<swiper :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration" class="swiper" circular="true">
 						<swiper-item v-for="(item, index) in banner" :key="index">
 							<view>
-								<!-- <image :src="'http://192.168.123.204:8088/'+item" mode="" class="banner-img"></image> -->
-								<image :src="'http://192.168.0.167:8088/' + item" mode="" class="banner-img"></image>
+								<image :src="'http://192.168.123.204:8088/'+item" mode="" class="banner-img"></image>
+								<!-- <image :src="'http://192.168.0.167:8088/' + item" mode="" class="banner-img"></image> -->
 							</view>
 						</swiper-item>
 					</swiper>
@@ -15,23 +15,23 @@
 			</view>
 			<uni-grid :column="5" :show-border="false" :square="true" class="grid">
 				<uni-grid-item class="griditem" v-for="(item, index) in griddata" :key="index">
-					<!-- <image :src="'http://192.168.123.204:8088/'+item.url" mode="" class="grid-pic"></image> -->
-					<image :src="'http://192.168.0.167:8088/' + item.url" mode="" class="grid-pic"></image>
+					<image :src="'http://192.168.123.204:8088/'+item.url" mode="" class="grid-pic"></image>
+					<!-- <image :src="'http://192.168.0.167:8088/' + item.url" mode="" class="grid-pic"></image> -->
 					<text class="text">{{ item.name }}</text>
 				</uni-grid-item>
 			</uni-grid>
 			<view class="bannerview">
 				<view v-for="(item, index) in subtitles" :key="index">
 					<view>
-						<!-- <image :src="'http://192.168.123.204:8088/'+item.image" mode="" class="sub-banner-img"></image> -->
-						<navigator :url="'../tab/tab?id='+item.id"><image :src="'http://192.168.0.167:8088/' + item.image" mode="" class="sub-banner-img"></image></navigator>
+						<!-- <navigator :url="'../tab/tab?id='+item.id"><image :src="'http://192.168.0.167:8088/' + item.image" mode="" class="sub-banner-img"></image></navigator> -->
+						<navigator :url="'../tab/tab?id='+item.id"><image :src="'http://192.168.123.204:8088/' + item.image" mode="" class="sub-banner-img"></image></navigator>
 					</view>
 					<view class="jj">
 						<scroll-view scroll-x="true" class="scroll">
 							<view class="scroll-inside" v-for="tem in item.content" :key="tem.title">
 								<navigator :url="'../product/product?id=' + tem.product_id + '&name=' + tem.title + '&url=' + tem.image">
-									<!-- <image :src="'http://192.168.123.204:8088/'+tem.image" mode="" class="sc-img"></image> -->
-									<image :src="'http://192.168.0.167:8088/' + tem.image" mode="" class="sc-img"></image>
+									<image :src="'http://192.168.123.204:8088/'+tem.image" mode="" class="sc-img"></image>
+									<!-- <image :src="'http://192.168.0.167:8088/' + tem.image" mode="" class="sc-img"></image> -->
 									<view class="limit">
 										<text class="text-b">{{ tem.subtitle }}</text>
 									</view>
@@ -41,8 +41,8 @@
 								</navigator>
 								<view class="orangebox">
 									<text class="text-color">￥{{ tem.price }}元/{{ tem.volume }}</text>
-									<!-- <image class="addbtn" src="http://192.168.123.204:8088/images/cart.png" mode="" @click="addCart(tem)"></image> -->
-									<image class="addbtn" src="http://192.168.0.167:8088/images/cart.png" mode="" @click="addCart(tem)"></image>
+									<image class="addbtn" src="http://192.168.123.204:8088/images/cart.png" mode="" @click="addCart(tem)"></image>
+									<!-- <image class="addbtn" src="http://192.168.0.167:8088/images/cart.png" mode="" @click="addCart(tem)"></image> -->
 								</view>
 							</view>
 						</scroll-view>
@@ -57,8 +57,8 @@
 export default {
 	created() {
 		uni.request({
-			// url: 'http://192.168.123.204:8088/data/fruits.json',
-			url: 'http://192.168.0.167:8088/data/fruits.json',
+			url: 'http://192.168.123.204:8088/data/fruits.json',
+			// url: 'http://192.168.0.167:8088/data/fruits.json',
 			method: 'GET',
 			header: {
 				'content-type': 'application/json'

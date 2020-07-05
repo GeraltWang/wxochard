@@ -23,7 +23,8 @@
 						</van-card> -->
 						<view class="detail-item">
 							<van-checkbox class="check" checked-color="#07c160" :value="item.checked" @change="selected(item)"></van-checkbox>
-							<view class="img"><image :src="'http://192.168.0.167:8088/' + item.url" mode=""></image></view>
+							<!-- <view class="img"><image :src="'http://192.168.0.167:8088/' + item.url" mode=""></image></view> -->
+							<view class="img"><image :src="'http://192.168.123.204:8088/' + item.url" mode=""></image></view>
 							<view class="detail-right">
 								<text class="t1">{{ item.name }}</text>
 								<text class="t3">{{ item.weight }}</text>
@@ -315,6 +316,7 @@ export default {
 	align-items: center;
 	margin-bottom: 10rpx;
 	border-bottom: 3rpx solid lightgray;
+	box-sizing: border-box;
 	.check {
 		margin-left: 18rpx;
 	}

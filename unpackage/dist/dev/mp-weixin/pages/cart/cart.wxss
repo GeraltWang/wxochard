@@ -61,6 +61,7 @@
           align-items: center;
   margin-bottom: 10rpx;
   border-bottom: 3rpx solid lightgray;
+  box-sizing: border-box;
 }
 .detail-item .check {
   margin-left: 18rpx;

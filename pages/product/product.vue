@@ -3,8 +3,8 @@
 		<swiper :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration" class="swiper" circular="true">
 			<swiper-item v-for="(item, index) in page.templatePhoto" :key="index">
 				<view>
-					<!-- <image :src="'http://192.168.123.204:8088/'+item" mode="" class="banner-img"></image> -->
-					<image :src="'http://192.168.0.167:8088/' + item" mode="" class="banner-img"></image>
+					<image :src="'http://192.168.123.204:8088/'+item" mode="" class="banner-img"></image>
+					<!-- <image :src="'http://192.168.0.167:8088/' + item" mode="" class="banner-img"></image> -->
 				</view>
 			</swiper-item>
 		</swiper>
@@ -35,7 +35,8 @@
 			</view>
 		</view>
 		<view class="desc">
-			<view class="box"><image src="http://192.168.0.167:8088/images/090734.png" mode=""></image></view>
+			<!-- <view class="box"><image src="http://192.168.0.167:8088/images/090734.png" mode=""></image></view> -->
+			<view class="box"><image src="http://192.168.123.204:8088/images/090734.png" mode=""></image></view>
 			<view class="info">
 				<view class="i-1">{{ page.templateInfo.pro_info.origin }}</view>
 				<view class="i-2">{{ page.templateInfo.pro_info.originMsg }}</view>
@@ -44,7 +45,8 @@
 				<view class="i-5">{{ page.templateInfo.pro_info.store }}</view>
 				<view class="i-6">{{ page.templateInfo.pro_info.storeMsg }}</view>
 			</view>
-			<view class="img"><image :src="'http://192.168.0.167:8088/' + item" mode="widthFix" v-for="(item, index) in page.templateInfo.desc_imgs" :key="item.id"></image></view>
+			<!-- <view class="img"><image :src="'http://192.168.0.167:8088/' + item" mode="widthFix" v-for="(item, index) in page.templateInfo.desc_imgs" :key="item.id"></image></view> -->
+			<view class="img"><image :src="'http://192.168.123.204:8088/' + item" mode="widthFix" v-for="(item, index) in page.templateInfo.desc_imgs" :key="item.id"></image></view>
 		</view>
 		<view class="nav">
 			<view class="cartinfo" @click="switchTab">
@@ -102,8 +104,8 @@ export default {
 	methods: {
 		request(js) {
 			uni.request({
-				// url: `http://192.168.123.204:8088/data/good_detail_${js.id}.json`,
-				url: `http://192.168.0.167:8088/data/good_detail_${js.id}.json`,
+				url: `http://192.168.123.204:8088/data/good_detail_${js.id}.json`,
+				// url: `http://192.168.0.167:8088/data/good_detail_${js.id}.json`,
 				method: 'GET',
 				header: {
 					'content-type': 'application/json'
